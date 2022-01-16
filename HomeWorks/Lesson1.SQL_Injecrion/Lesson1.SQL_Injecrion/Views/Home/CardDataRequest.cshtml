@@ -1,0 +1,16 @@
+﻿@model Lesson1.SQL_Injecrion.DAL.Models.Card
+
+@{
+    ViewData["Title"] = "Ввод данных карты";
+}
+
+<div>
+    <h1 class="h3 mb-3 fw-normal">Были введены данные карты:</h1>
+        
+    @using Lesson1.SQL_Injecrion.DAL.Models;
+    @{
+        Card card = Model;
+
+        <p><strong>Номер карты: @card.NumbCard</strong></p>
+    }
+</div>

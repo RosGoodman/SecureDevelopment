@@ -1,0 +1,37 @@
+﻿@model Lesson1.SQL_Injecrion.DAL.Models.Card
+
+@{
+    ViewData["Title"] = "Ввод данных карты";
+}
+
+ <form asp-action="CardDataRequest">
+    <h1 class="h3 mb-3 fw-normal">Введите данные банковской карты</h1>
+        
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="form-floating">
+        <input asp-for="NumbCard" class="form-control" placeholder="Login">
+        <label asp-for="NumbCard">Номер карты</label>
+        <span asp-validation-for="NumbCard" class="text-danger"></span>
+    </div>
+
+    <div class="form-floating">
+        <input asp-for="CVV_CVC" class="form-control" placeholder="Password">
+        <label asp-for="CVV_CVC">CVV/CVC</label>
+        <span asp-validation-for="CVV_CVC" class="text-danger"></span>
+    </div>
+        
+    <div class="form-floating">
+        <input asp-for="CardOwner" class="form-control" placeholder="Login">
+        <label asp-for="CardOwner">Имя и фамилия</label>
+        <span asp-validation-for="CardOwner" class="text-danger"></span>
+    </div>
+
+    <div class="form-floating">
+        <input asp-for="Validity" class="form-control" placeholder="Date">
+        <label asp-for="CardOwner">Срок действия карты</label>
+        <span asp-validation-for="Validity" class="text-danger"></span>
+    </div>
+
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Продолжить</button>
+</form>
