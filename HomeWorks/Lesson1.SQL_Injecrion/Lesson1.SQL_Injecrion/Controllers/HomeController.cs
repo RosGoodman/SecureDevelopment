@@ -25,11 +25,11 @@ namespace Lesson1.SQL_Injecrion.Controllers
             return View();
         }
 
-        public async Task<IActionResult> CardDataRequest(long numbCard, int cvv_cvc, string cardOwner, DateTime validaty, [FromServices] IRepository<Card> repository)
+        public async Task<IActionResult> CardDataRequest(Card newCard, [FromServices] IRepository<Card> repository)
         {
-            if (numbCard == 0 || cvv_cvc == 0 || cardOwner == "") return View();
+            if (newCard.NumbCard == 0 || newCard.CVV_CVC == 0 || newCard.CardOwner == "") return View();
 
-            var card = await repository.GetAsync(new Card() { NumbCard = numbCard, CardOwner = cardOwner, CVV_CVC = cvv_cvc, Validity = validaty });
+            var card = await repository.GetAsync(newCard);
             return View(card);
         }
 

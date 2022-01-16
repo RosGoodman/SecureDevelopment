@@ -33,6 +33,7 @@ namespace Lesson1.SQL_Injecrion.DAL.Repositories
 
         public async Task<T?> GetAsync(T item, CancellationToken Cancel = default)
         {
+            //тут при запуске через докер вылетает ошибка, об отсутствии поддержки на данной платформе. В причинах пока не разобрался
             var foundCard = await Set.FirstOrDefaultAsync(i => i.NumbCard == item.NumbCard, Cancel).ConfigureAwait(false);
             if (foundCard != null) return foundCard;
 
