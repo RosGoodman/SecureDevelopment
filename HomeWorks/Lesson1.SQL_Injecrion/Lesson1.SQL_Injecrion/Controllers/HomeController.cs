@@ -6,6 +6,7 @@ using System.Diagnostics;
 
 namespace Lesson1.SQL_Injecrion.Controllers
 {
+    /// <summary> Контроллер домашней страницы. </summary>
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -25,14 +26,22 @@ namespace Lesson1.SQL_Injecrion.Controllers
             return View();
         }
 
-        public async Task<IActionResult> CardDataRequest(Card newCard, [FromServices] IRepository<Card> repository)
+        /// <summary> Добавить данные о карте. </summary>
+        /// <param name="newCard"> Экземпляр новой карты. </param>
+        /// <param name="repository"> Репозиторий. </param>
+        /// <returns></returns>
+        public async Task<IActionResult> AddCardDataRquest(Card newCard, [FromServices] IRepository<Card> repository)
         {
             if (newCard.NumbCard == 0 || newCard.CVV_CVC == 0 || newCard.CardOwner == "") return View();
 
             var card = await repository.GetAsync(newCard);
+            if(card == null) repository.AddAsync(newCard);
+
             return View(card);
         }
 
+        /// <summary> Отобразить введенные данные. </summary>
+        /// <returns></returns>
         public async Task<IActionResult> CardDataInput()
         {
             return View();

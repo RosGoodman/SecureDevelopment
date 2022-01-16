@@ -33,6 +33,7 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+// Начальная страница.
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
