@@ -4,7 +4,7 @@ namespace Lesson1.SQL_Injecrion.Interfaces
 {
     /// <summary> Интерфейс репозитория. </summary>
     /// <typeparam name="T"> Класс. </typeparam>
-    public interface IRepository<T> where T : class, ICardEntity
+    public interface IRepository<T> where T : class
     {
         /// <summary> Получить список экземпляров. </summary>
         /// <param name="Cancel"></param>
@@ -20,7 +20,7 @@ namespace Lesson1.SQL_Injecrion.Interfaces
         /// <summary> Добавить экземпляр класса в БД. </summary>
         /// <param name="item"> Экземпляр класса. </param>
         /// <param name="Cancel"></param>
-        void AddAsync(T item, CancellationToken Cancel = default);
+        Task AddAsync(T item, CancellationToken Cancel = default);
 
         /// <summary> Обновить. </summary>
         /// <param name="item"> Экземпляр класса. </param>

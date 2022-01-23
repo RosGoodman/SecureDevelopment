@@ -7,7 +7,7 @@ namespace Lesson1.SQL_Injecrion.DAL.Repositories;
 
 /// <summary> Репозиторий БД. </summary>
 /// <typeparam name="T"> Класс. </typeparam>
-public class DbRepository<T> : IRepository<T> where T : class, ICardEntity
+internal class DbRepository<T> : IRepository<T> where T : class, ICardEntity
 {
     private readonly CardDB _db;
     protected DbSet<T> Set { get; }
@@ -23,7 +23,7 @@ public class DbRepository<T> : IRepository<T> where T : class, ICardEntity
     /// <summary> Добавить экземпляр класса в БД. </summary>
     /// <param name="item"> Экземпляр класса. </param>
     /// <param name="Cancel"></param>
-    public async void AddAsync(T item, CancellationToken Cancel = default)
+    public async Task AddAsync(T item, CancellationToken Cancel = default)
     {
         await Set.AddAsync(item, Cancel).ConfigureAwait(false);
         await _db.SaveChangesAsync(Cancel);
@@ -33,10 +33,10 @@ public class DbRepository<T> : IRepository<T> where T : class, ICardEntity
     /// <param name="item"> Экземпляр класса. </param>
     /// <param name="Cancel"></param>
     /// <returns> Item, найденный в БД. </returns>
-    public async Task<T?> GetAsync(T item, CancellationToken Cancel = default)
+    public async Task<T> GetAsync(T item, CancellationToken Cancel = default)
     {
         //тут при запуске через докер вылетает ошибка, об отсутствии поддержки на данной платформе. В причинах пока не разобрался
-        return await Set.FirstOrDefaultAsync(i => i.NumbCard == item.NumbCard, Cancel).ConfigureAwait(false);
+        return await Set.FirstOrDefaultAsync(i => i.NumbCard == item.NumbCard, Cancel);
 
     }
 

@@ -13,6 +13,15 @@ services.AddDbContext<CardDB>(opt => opt
 //регистрация связи репозитория и интерфейса
 services.AddScoped(typeof(IRepository<>), typeof(DbRepository<>));
 
+
+//подключение авторизации и аутентификации
+services.AddAuthentication("Cookie")
+    .AddCookie("Cookie", config =>
+    {
+        config.LoginPath = "/Admin/Login";
+    });
+services.AddAuthorization();
+
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
@@ -31,6 +40,9 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+//указание использования подключенных авторизации и аутентификации
+//должны находиться после app.UseRouting();
+app.UseAuthentication();
 app.UseAuthorization();
 
 // Начальная страница.

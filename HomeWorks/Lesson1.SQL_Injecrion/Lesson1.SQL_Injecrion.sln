@@ -3,9 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson1.SQL_Injecrion", "Lesson1.SQL_Injecrion\Lesson1.SQL_Injecrion.csproj", "{F898C723-C312-42C0-BA02-909CA8660EDA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson1.SQL_Injection.WithoutEF", "Lesson1.SQL_Injection.WithoutEF\Lesson1.SQL_Injection.WithoutEF.csproj", "{561478D9-EAFF-4638-AD48-E9AA3014F8EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson1.SQL_Injecrion", "Lesson1.SQL_Injecrion\Lesson1.SQL_Injecrion.csproj", "{F898C723-C312-42C0-BA02-909CA8660EDA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +15,6 @@ Global
 		{F898C723-C312-42C0-BA02-909CA8660EDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F898C723-C312-42C0-BA02-909CA8660EDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F898C723-C312-42C0-BA02-909CA8660EDA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{561478D9-EAFF-4638-AD48-E9AA3014F8EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{561478D9-EAFF-4638-AD48-E9AA3014F8EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{561478D9-EAFF-4638-AD48-E9AA3014F8EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{561478D9-EAFF-4638-AD48-E9AA3014F8EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

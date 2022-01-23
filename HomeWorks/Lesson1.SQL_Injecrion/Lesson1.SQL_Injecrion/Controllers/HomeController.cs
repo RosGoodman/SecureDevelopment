@@ -1,6 +1,7 @@
 ﻿using Lesson1.SQL_Injecrion.DAL.Models;
 using Lesson1.SQL_Injecrion.Interfaces;
 using Lesson1.SQL_Injecrion.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -32,12 +33,27 @@ namespace Lesson1.SQL_Injecrion.Controllers
         /// <returns></returns>
         public async Task<IActionResult> AddCardDataRquest(Card newCard, [FromServices] IRepository<Card> repository)
         {
-            if (newCard.NumbCard == 0 || newCard.CVV_CVC == 0 || newCard.CardOwner == "") return View();
+            //скрыть Card за интерфейсом у меня не вышло
+
+            if (!ValidationCard(newCard)) return View();
 
             var card = await repository.GetAsync(newCard);
-            if(card == null) repository.AddAsync(newCard);
+            if (card == null)
+            {
+                repository.AddAsync(newCard);
+                return View(newCard);
+            }
 
             return View(card);
+        }
+
+        /// <summary> Проверка заполненности значений. </summary>
+        /// <param name="newCard"> Новая карта. </param>
+        /// <returns> false - данные не полные. </returns>
+        private bool ValidationCard(Card newCard)
+        {
+            if (newCard.NumbCard == 0 || newCard.CVV_CVC == 0 || newCard.CardOwner == "") return false;
+            return true;
         }
 
         /// <summary> Отобразить введенные данные. </summary>
