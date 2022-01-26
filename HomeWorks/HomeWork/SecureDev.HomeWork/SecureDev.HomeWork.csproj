@@ -24,4 +24,10 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="StrictName">
+      <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\StrictName\v4.0_1.0.0.0__afed9cb2189ba48c\StrictName.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
