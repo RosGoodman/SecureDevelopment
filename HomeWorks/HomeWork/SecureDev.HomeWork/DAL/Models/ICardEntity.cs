@@ -1,4 +1,4 @@
-﻿namespace Lesson1.SQL_Injecrion.DAL.Models
+﻿namespace SecureDev.HomeWork.DAL.Models
 {
     /// <summary> Интерфейс карты для использования в репоозитории. </summary>
     public interface ICardEntity

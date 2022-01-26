@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace Lesson1.SQL_Injecrion.Migrations
+namespace SecureDev.HomeWork.Migrations
 {
     public partial class _001 : Migration
     {

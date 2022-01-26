@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Lesson1.SQL_Injecrion.Migrations
+namespace SecureDev.HomeWork.Migrations
 {
     public partial class _003 : Migration
     {

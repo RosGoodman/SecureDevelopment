@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 
-namespace Lesson1.SQL_Injecrion.DAL.Models
+namespace SecureDev.HomeWork.DAL.Models
 {
     public class Card : ICardEntity
     {

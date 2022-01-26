@@ -1,10 +1,10 @@
-﻿using Lesson1.SQL_Injecrion.ViewModels;
+﻿using SecureDev.HomeWork.ViewModels;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 
-namespace Lesson1.SQL_Injecrion.Controllers;
+namespace SecureDev.HomeWork.Controllers;
 
 [Authorize]
 public class AdminController : Controller

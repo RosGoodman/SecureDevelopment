@@ -1,4 +1,4 @@
-namespace Lesson1.SQL_Injecrion.Models
+﻿namespace SecureDev.HomeWork.ViewModels
 {
     public class ErrorViewModel
     {

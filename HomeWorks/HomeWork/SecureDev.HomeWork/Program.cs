@@ -1,17 +1,21 @@
-using Lesson1.SQL_Injecrion.DAL.Context;
-using Lesson1.SQL_Injecrion.DAL.Repositories;
-using Lesson1.SQL_Injecrion.Interfaces;
+using SecureDev.HomeWork.DAL.Context;
+using SecureDev.HomeWork.DAL.Repositories;
+using SecureDev.HomeWork.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using SecureDev.HomeWork.DAL.Models;
+using SecureDev.HomeWork.ViewModels;
 
 var builder = WebApplication.CreateBuilder(args);
 
 var services = builder.Services;
 
 //регистрация пути к БД
-services.AddDbContext<CardDB>(opt => opt
+services.AddDbContext<ContextDB>(opt => opt
     .UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 //регистрация связи репозитория и интерфейса
 services.AddScoped(typeof(IRepository<>), typeof(DbRepository<>));
+services.AddScoped(typeof(IUserModel), typeof(UserModel));
+services.AddScoped(typeof(IRegistrationViewModel), typeof(RegistrationViewModel));
 
 
 //подключение авторизации и аутентификации

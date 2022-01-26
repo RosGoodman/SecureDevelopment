@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Lesson1.SQL_Injecrion.ViewModels
+namespace SecureDev.HomeWork.ViewModels
 {
     public class LoginViewModel
     {

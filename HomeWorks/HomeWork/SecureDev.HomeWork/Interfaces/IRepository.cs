@@ -1,6 +1,6 @@
-﻿using Lesson1.SQL_Injecrion.DAL.Models;
+﻿using SecureDev.HomeWork.DAL.Models;
 
-namespace Lesson1.SQL_Injecrion.Interfaces
+namespace SecureDev.HomeWork.Interfaces
 {
     /// <summary> Интерфейс репозитория. </summary>
     /// <typeparam name="T"> Класс. </typeparam>

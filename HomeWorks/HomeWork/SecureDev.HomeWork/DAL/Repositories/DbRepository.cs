@@ -1,20 +1,20 @@
-﻿using Lesson1.SQL_Injecrion.DAL.Context;
-using Lesson1.SQL_Injecrion.DAL.Models;
-using Lesson1.SQL_Injecrion.Interfaces;
+﻿using SecureDev.HomeWork.DAL.Context;
+using SecureDev.HomeWork.DAL.Models;
+using SecureDev.HomeWork.Interfaces;
 using Microsoft.EntityFrameworkCore;
 
-namespace Lesson1.SQL_Injecrion.DAL.Repositories;
+namespace SecureDev.HomeWork.DAL.Repositories;
 
 /// <summary> Репозиторий БД. </summary>
 /// <typeparam name="T"> Класс. </typeparam>
 internal class DbRepository<T> : IRepository<T> where T : class, ICardEntity
 {
-    private readonly CardDB _db;
+    private readonly ContextDB _db;
     protected DbSet<T> Set { get; }
 
     /// <summary> Контруктор репозиторя БД. </summary>
     /// <param name="db"> Контекст БД. </param>
-    public DbRepository(CardDB db)
+    public DbRepository(ContextDB db)
     {
         _db = db;
         Set = _db.Set<T>();

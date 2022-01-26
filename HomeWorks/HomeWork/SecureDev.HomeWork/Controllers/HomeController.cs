@@ -1,11 +1,11 @@
-﻿using Lesson1.SQL_Injecrion.DAL.Models;
-using Lesson1.SQL_Injecrion.Interfaces;
-using Lesson1.SQL_Injecrion.Models;
+﻿using SecureDev.HomeWork.DAL.Models;
+using SecureDev.HomeWork.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using SecureDev.HomeWork.ViewModels;
 
-namespace Lesson1.SQL_Injecrion.Controllers
+namespace SecureDev.HomeWork.Controllers
 {
     /// <summary> Контроллер домашней страницы. </summary>
     public class HomeController : Controller
