@@ -16,7 +16,7 @@ services.AddDbContext<ContextDB>(opt => opt
 services.AddScoped(typeof(IRepository<>), typeof(DbRepository<>));
 services.AddScoped(typeof(IUserModel), typeof(UserModel));
 //services.AddScoped(typeof(IRegistrationViewModel), typeof(RegistrationViewModel));
-services.AddTransient<IRegistrationViewModel, RegistrationViewModel>();
+services.AddScoped<IRegistrationViewModel, RegistrationViewModel>();
 services.AddScoped(typeof(IContextDB), typeof(ContextDB));
 services.AddScoped(typeof(IRegistrationRepository), typeof(RegistrationRepository));
 

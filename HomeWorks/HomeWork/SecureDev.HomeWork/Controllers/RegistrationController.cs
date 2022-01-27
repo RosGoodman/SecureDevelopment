@@ -14,7 +14,6 @@ namespace SecureDev.HomeWork.Controllers
     {
         private readonly IRegistrationRepository _repository;
         private readonly ILogger<RegistrationController> _logger;
-        private readonly IRegistrationViewModel _vm;
 
         public RegistrationController(IRegistrationRepository repository,  ILogger<RegistrationController> logger)
         {
@@ -37,17 +36,17 @@ namespace SecureDev.HomeWork.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> Register([FromServices] IRegistrationViewModel vm)
+        public async Task<IActionResult> Register(RegistrationViewModel vm)
         {
-            if(_vm.Password != _vm.RepeatPassword)
+            if(vm.Password != vm.RepeatPassword)
                 //перенаправление тут больше для пробы, ну и обновляет страницу при несовпадении
                 return RedirectToAction("Register", "Registration");
 
             if (!ModelState.IsValid) 
-                return View(_vm);
+                return View(vm);
 
             //регистация с проверкой. Если не зарегистрировался, то обновление страницы
-            if(!await _repository.TryRegisterAsync(_vm)) return RedirectToAction("Register", "Registration");
+            if(!await _repository.TryRegisterAsync(vm)) return RedirectToAction("Register", "Registration");
 
             var claims = new List<Claim>
             {
@@ -57,7 +56,7 @@ namespace SecureDev.HomeWork.Controllers
             var claimPrincipal = new ClaimsPrincipal(claimIdentity);
             await HttpContext.SignInAsync("Cookie", claimPrincipal);
 
-            return Redirect(_vm.ReturnUrl);
+            return Redirect(vm.ReturnUrl);
         }
     }
 }
