@@ -4,6 +4,7 @@ using SecureDev.HomeWork.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using SecureDev.HomeWork.DAL.Models;
 using SecureDev.HomeWork.ViewModels;
+using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,22 +13,35 @@ var services = builder.Services;
 //регистрация пути к БД
 services.AddDbContext<ContextDB>(opt => opt
     .UseSqlServer(builder.Configuration.GetConnectionString("Default")));
+
 //регистрация связи репозитория и интерфейса
 services.AddScoped(typeof(IRepository<>), typeof(DbRepository<>));
 services.AddScoped(typeof(IUserModel), typeof(UserModel));
-//services.AddScoped(typeof(IRegistrationViewModel), typeof(RegistrationViewModel));
-services.AddScoped<IRegistrationViewModel, RegistrationViewModel>();
 services.AddScoped(typeof(IContextDB), typeof(ContextDB));
 services.AddScoped(typeof(IRegistrationRepository), typeof(RegistrationRepository));
+services.AddScoped(typeof(ILoginRepository), typeof(LoginRepository));
 
 
 //подключение авторизации и аутентификации
 services.AddAuthentication("Cookie")
     .AddCookie("Cookie", config =>
     {
-        config.LoginPath = "/Registration/Register";
+        //переадрисация, если не авторизован
+        config.LoginPath = "/Login/Login";
+        config.AccessDeniedPath = "/Home/AccessDenied";
     });
-services.AddAuthorization();
+
+services.AddAuthorization(options =>
+{
+    options.AddPolicy("Administrator", builder =>
+    {
+        builder.RequireClaim(ClaimTypes.Role, "Administrator");
+    });
+    options.AddPolicy("User", builder =>
+    {
+        builder.RequireClaim(ClaimTypes.Role, "User");
+    });
+});
 
 // Add services to the container.
 services.AddControllersWithViews();

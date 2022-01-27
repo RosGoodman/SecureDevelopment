@@ -7,5 +7,7 @@ namespace SecureDev.HomeWork.DAL.Context
     {
         DbSet<Card> Cards { get; set; }
         DbSet<UserModel> Users { get; set; }
+
+        void SaveChangesDB();
     }
 }

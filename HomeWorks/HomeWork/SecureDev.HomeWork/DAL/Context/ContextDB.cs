@@ -11,5 +11,7 @@ namespace SecureDev.HomeWork.DAL.Context
         public DbSet<UserModel> Users { get; set; }
 
         public ContextDB(DbContextOptions<ContextDB> Options) : base(Options) { }
+
+        public void SaveChangesDB() => SaveChanges();
     }
 }

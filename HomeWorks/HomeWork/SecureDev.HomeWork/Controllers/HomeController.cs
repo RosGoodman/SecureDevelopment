@@ -19,10 +19,17 @@ namespace SecureDev.HomeWork.Controllers
 
         public IActionResult Index()
         {
+            ViewBag.Name = User.Identity.Name;
+            ViewBag.IsAuthenticated = User.Identity.IsAuthenticated;
             return View();
         }
 
         public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        public IActionResult AccessDenied()
         {
             return View();
         }

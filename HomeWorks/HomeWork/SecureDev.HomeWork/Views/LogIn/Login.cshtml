@@ -1,12 +1,8 @@
 ﻿@model LoginViewModel
 <h1>Login</h1>
 
-<header>
-    <a asp-controller="User" asp-action="Index">Home</a>
-</header>
 
-
-<form asp-controller="Admin" asp-action="Login" method="post">
+<form asp-controller="Login" asp-action="Login" method="post">
     <input hidden asp-for="ReturnUrl"/>
     <div>
         <label>UserName</label>

@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using SecureDev.HomeWork.DAL.Context;
+﻿using SecureDev.HomeWork.DAL.Context;
 using SecureDev.HomeWork.DAL.Models;
 using SecureDev.HomeWork.ViewModels;
 
@@ -26,6 +25,7 @@ namespace SecureDev.HomeWork.DAL.Repositories
 
                 user = new UserModel() { Login = vm.UserName, Role = vm.Role, UserPassword = vm.Password };
                 await _context.Users.AddAsync(user);
+                _context.SaveChangesDB();
                 return true;
             }
             catch (Exception ex)
