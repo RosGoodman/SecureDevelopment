@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SecureDev.HomeWork.ViewModels;
 
+/// <summary> Модель, описывающая данные вводимые пользователем при регистрации. </summary>
 public class RegistrationViewModel : IRegistrationViewModel
 {
     [Required]

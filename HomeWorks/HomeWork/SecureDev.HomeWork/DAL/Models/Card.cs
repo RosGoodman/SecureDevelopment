@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SecureDev.HomeWork.DAL.Models
 {
+    /// <summary> Модель банковской карты. </summary>
     public class Card : ICardEntity
     {
         /// <summary> ID карты в БД. </summary>

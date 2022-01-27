@@ -12,6 +12,7 @@ namespace SecureDev.HomeWork.DAL.Context
 
         public ContextDB(DbContextOptions<ContextDB> Options) : base(Options) { }
 
+        /// <summary> "Завернутый метод для использования в DI. </summary>
         public void SaveChangesDB() => SaveChanges();
     }
 }

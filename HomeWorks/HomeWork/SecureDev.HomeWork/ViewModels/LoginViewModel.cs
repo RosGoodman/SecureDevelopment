@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SecureDev.HomeWork.ViewModels
 {
+    /// <summary> Модель, описвыающая вводимые пользователем данные при входе. </summary>
     public class LoginViewModel : ILoginViewModel
     {
         [Required]

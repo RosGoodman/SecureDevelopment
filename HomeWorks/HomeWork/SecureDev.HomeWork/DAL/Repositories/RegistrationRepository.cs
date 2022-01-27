@@ -15,6 +15,9 @@ namespace SecureDev.HomeWork.DAL.Repositories
             _context = context;
         }
 
+        /// <summary> Зарегистрировать нового пользователя. </summary>
+        /// <param name="vm"> Модель с данными нового пользователя. </param>
+        /// <returns> Зрегистрироване/не зарегистрирован. </returns>
         public async Task<bool> TryRegisterAsync(IRegistrationViewModel vm)
         {
             try

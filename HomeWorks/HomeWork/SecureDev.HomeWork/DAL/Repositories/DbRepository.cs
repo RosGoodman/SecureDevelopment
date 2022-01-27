@@ -42,6 +42,5 @@ internal class DbRepository<T> : IRepository<T> where T : class, ICardEntity
 
     public Task<bool> UpdateAsync(T item, CancellationToken Cancel = default) => throw new NotImplementedException();
     public Task<bool> DeleteAsync(T item, CancellationToken Cancel = default) => throw new NotImplementedException();
-
     public Task<IEnumerable<T>> GetAllAsync(CancellationToken Cancel = default) => throw new NotImplementedException();
 }

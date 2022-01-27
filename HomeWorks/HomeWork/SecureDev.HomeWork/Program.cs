@@ -3,7 +3,6 @@ using SecureDev.HomeWork.DAL.Repositories;
 using SecureDev.HomeWork.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using SecureDev.HomeWork.DAL.Models;
-using SecureDev.HomeWork.ViewModels;
 using System.Security.Claims;
 
 var builder = WebApplication.CreateBuilder(args);

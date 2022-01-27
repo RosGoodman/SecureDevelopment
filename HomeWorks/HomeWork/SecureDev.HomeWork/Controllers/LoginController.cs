@@ -25,12 +25,18 @@ namespace SecureDev.HomeWork.Controllers
             return View();
         }
 
+        /// <summary> Страница ввода лоина и пароля. </summary>
+        /// <param name="returnUrl"> URL для перенаправления. </param>
+        /// <returns></returns>
         [AllowAnonymous]
         public IActionResult Login(string returnUrl)
         {
             return View();
         }
 
+        /// <summary> Вход пользователя. </summary>
+        /// <param name="model"> Модель с данными для входа. </param>
+        /// <returns></returns>
         [HttpPost]
         [AllowAnonymous]
         public async Task<IActionResult> Login(LoginViewModel model)
@@ -53,8 +59,6 @@ namespace SecureDev.HomeWork.Controllers
             //получение клаймов в соответствии с ролями
             var claims = GetClaimsList(user, model);
 
-            
-
             var claimIdentity = new ClaimsIdentity(claims, "Cookie");
             var claimPrincipal = new ClaimsPrincipal(claimIdentity);
             await HttpContext.SignInAsync("Cookie", claimPrincipal);
@@ -62,6 +66,10 @@ namespace SecureDev.HomeWork.Controllers
             return Redirect(model.ReturnUrl);
         }
 
+        /// <summary> Получить список клаймов в соответствии с ролью. </summary>
+        /// <param name="user"> Авторизирующийся пользователь. </param>
+        /// <param name="model"> Модель данных. </param>
+        /// <returns> Список клаймов. </returns>
         private List<Claim> GetClaimsList(UserModel user, LoginViewModel model)
         {
             if (user.Role == "User")
@@ -85,6 +93,8 @@ namespace SecureDev.HomeWork.Controllers
             return null;
         }
 
+        /// <summary> Выход из аккаунта. </summary>
+        /// <returns></returns>
         public IActionResult LogOff()
         {
             HttpContext.SignOutAsync("Cookie");

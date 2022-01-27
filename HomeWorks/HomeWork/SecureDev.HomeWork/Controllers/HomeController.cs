@@ -1,6 +1,5 @@
 ﻿using SecureDev.HomeWork.DAL.Models;
 using SecureDev.HomeWork.Interfaces;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using SecureDev.HomeWork.ViewModels;
@@ -29,6 +28,8 @@ namespace SecureDev.HomeWork.Controllers
             return View();
         }
 
+        /// <summary> Страница для отображения, что доступ закрыт. </summary>
+        /// <returns></returns>
         public IActionResult AccessDenied()
         {
             return View();

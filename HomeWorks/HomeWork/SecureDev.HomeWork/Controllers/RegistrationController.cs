@@ -1,9 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using SecureDev.HomeWork.DAL.Models;
 using SecureDev.HomeWork.DAL.Repositories;
-using SecureDev.HomeWork.Interfaces;
 using SecureDev.HomeWork.ViewModels;
 using System.Security.Claims;
 
@@ -27,17 +25,25 @@ namespace SecureDev.HomeWork.Controllers
             return View();
         }
 
+        /// <summary> Страница регистрации. </summary>
+        /// <param name="returnUrl"> URL для перенаправления. </param>
+        /// <returns></returns>
         [AllowAnonymous]
         public IActionResult Register(string returnUrl)
         {
             return View();
         }
 
+        /// <summary> Регистрация пользователя. </summary>
+        /// <param name="vm"> Модель данных для регистрации. </param>
+        /// <returns></returns>
         [HttpPost]
         [AllowAnonymous]
         public async Task<IActionResult> Register(RegistrationViewModel vm)
         {
-            if(vm.Password != vm.RepeatPassword)
+            _logger.LogDebug(1, "Выполнение запроса регистрации пользователя.");
+
+            if (vm.Password != vm.RepeatPassword)
                 //перенаправление тут больше для пробы, ну и обновляет страницу при несовпадении
                 return RedirectToAction("Register", "Registration");
 

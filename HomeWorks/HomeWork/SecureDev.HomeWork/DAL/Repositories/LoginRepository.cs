@@ -8,6 +8,7 @@ namespace SecureDev.HomeWork.DAL.Repositories
     {
         private readonly ILogger<LoginRepository> _logger;
         private readonly IContextDB _context;
+
         public LoginRepository(ILogger<LoginRepository> logger, IContextDB context)
         {
             _logger = logger;
@@ -15,6 +16,9 @@ namespace SecureDev.HomeWork.DAL.Repositories
             _context = context;
         }
 
+        /// <summary> Проверить наличие пользователя с указанными данными. </summary>
+        /// <param name="vm"> Проверяемая модель с введенными. </param>
+        /// <returns></returns>
         public async Task<UserModel> ChekUserIdDB(ILoginViewModel vm)
         {
             try
