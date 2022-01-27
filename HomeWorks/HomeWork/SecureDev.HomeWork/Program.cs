@@ -15,19 +15,22 @@ services.AddDbContext<ContextDB>(opt => opt
 //регистрация связи репозитория и интерфейса
 services.AddScoped(typeof(IRepository<>), typeof(DbRepository<>));
 services.AddScoped(typeof(IUserModel), typeof(UserModel));
-services.AddScoped(typeof(IRegistrationViewModel), typeof(RegistrationViewModel));
+//services.AddScoped(typeof(IRegistrationViewModel), typeof(RegistrationViewModel));
+services.AddTransient<IRegistrationViewModel, RegistrationViewModel>();
+services.AddScoped(typeof(IContextDB), typeof(ContextDB));
+services.AddScoped(typeof(IRegistrationRepository), typeof(RegistrationRepository));
 
 
 //подключение авторизации и аутентификации
 services.AddAuthentication("Cookie")
     .AddCookie("Cookie", config =>
     {
-        config.LoginPath = "/Admin/Login";
+        config.LoginPath = "/Registration/Register";
     });
 services.AddAuthorization();
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+services.AddControllersWithViews();
 
 var app = builder.Build();
 

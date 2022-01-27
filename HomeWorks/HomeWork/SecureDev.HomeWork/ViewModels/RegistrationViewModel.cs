@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿
+using System.ComponentModel.DataAnnotations;
 
 namespace SecureDev.HomeWork.ViewModels;
 
@@ -14,4 +15,6 @@ public class RegistrationViewModel : IRegistrationViewModel
     public string Role { get; set; }
     [Required]
     public string ReturnUrl { get; set; }
+
+    public RegistrationViewModel() { }
 }
