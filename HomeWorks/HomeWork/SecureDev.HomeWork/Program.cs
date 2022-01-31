@@ -1,4 +1,4 @@
-using SecureDev.HomeWork.DAL.Context;
+п»їusing SecureDev.HomeWork.DAL.Context;
 using SecureDev.HomeWork.DAL.Repositories;
 using SecureDev.HomeWork.Interfaces;
 using Microsoft.EntityFrameworkCore;
@@ -9,11 +9,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 var services = builder.Services;
 
-//регистрация пути к БД
+//СЂРµРіРёСЃС‚СЂР°С†РёСЏ РїСѓС‚Рё Рє Р‘Р”
 services.AddDbContext<ContextDB>(opt => opt
     .UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 
-//регистрация связи репозитория и интерфейса
+//СЂРµРіРёСЃС‚СЂР°С†РёСЏ СЃРІСЏР·Рё СЂРµРїРѕР·РёС‚РѕСЂРёСЏ Рё РёРЅС‚РµСЂС„РµР№СЃР°
 services.AddScoped(typeof(IRepository<>), typeof(DbRepository<>));
 services.AddScoped(typeof(IUserModel), typeof(UserModel));
 services.AddScoped(typeof(IContextDB), typeof(ContextDB));
@@ -21,11 +21,11 @@ services.AddScoped(typeof(IRegistrationRepository), typeof(RegistrationRepositor
 services.AddScoped(typeof(ILoginRepository), typeof(LoginRepository));
 
 
-//подключение авторизации и аутентификации
+//РїРѕРґРєР»СЋС‡РµРЅРёРµ Р°РІС‚РѕСЂРёР·Р°С†РёРё Рё Р°СѓС‚РµРЅС‚РёС„РёРєР°С†РёРё
 services.AddAuthentication("Cookie")
     .AddCookie("Cookie", config =>
     {
-        //переадрисация, если не авторизован
+        //РїРµСЂРµР°РґСЂРёСЃР°С†РёСЏ, РµСЃР»Рё РЅРµ Р°РІС‚РѕСЂРёР·РѕРІР°РЅ
         config.LoginPath = "/Login/Login";
         config.AccessDeniedPath = "/Home/AccessDenied";
     });
@@ -60,12 +60,12 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-//указание использования подключенных авторизации и аутентификации
-//должны находиться после app.UseRouting();
+//СѓРєР°Р·Р°РЅРёРµ РёСЃРїРѕР»СЊР·РѕРІР°РЅРёСЏ РїРѕРґРєР»СЋС‡РµРЅРЅС‹С… Р°РІС‚РѕСЂРёР·Р°С†РёРё Рё Р°СѓС‚РµРЅС‚РёС„РёРєР°С†РёРё
+//РґРѕР»Р¶РЅС‹ РЅР°С…РѕРґРёС‚СЊСЃСЏ РїРѕСЃР»Рµ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-// Начальная страница.
+// РќР°С‡Р°Р»СЊРЅР°СЏ СЃС‚СЂР°РЅРёС†Р°.
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");

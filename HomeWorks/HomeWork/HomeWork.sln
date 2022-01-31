@@ -5,7 +5,7 @@ VisualStudioVersion = 17.0.32112.339
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SecureDev.HomeWork", "SecureDev.HomeWork\SecureDev.HomeWork.csproj", "{6AB8F687-4036-4D57-B32F-219B5FBB93A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrictName", "StrictName\StrictName.csproj", "{88F73E92-241A-4A16-96F6-BA7E84DA322E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StrictName", "StrictName\StrictName.csproj", "{88F73E92-241A-4A16-96F6-BA7E84DA322E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
