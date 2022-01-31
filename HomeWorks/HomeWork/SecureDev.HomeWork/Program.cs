@@ -11,7 +11,7 @@ var services = builder.Services;
 
 //регистрация пути к БД
 services.AddDbContext<ContextDB>(opt => opt
-    .UseSqlServer(builder.Configuration.GetConnectionString("Default")));
+    .UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString")));
 
 //регистрация связи репозитория и интерфейса
 services.AddScoped(typeof(IRepository<>), typeof(DbRepository<>));

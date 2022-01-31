@@ -31,5 +31,6 @@
       "publishAllPorts": true,
       "useSSL": true
     }
-  }
+  },
+  "MySetting": "This is my test setting from appsettings.Developmemt.json"
 }
