@@ -35,6 +35,6 @@ public class AdminController : Controller
     public async Task<IActionResult> DeletingUser(UserModel user)
     {
         bool isDeleted = await _repository.Delete(user.Id);
-        return Redirect("~/Admin/Administrator");
+        return Redirect("~/Admin/MainControllers/Administrator");
     }
 }
