@@ -1,5 +1,31 @@
 ﻿
+
+<link href="@Url.Content("~/css/usersTableStyle.css")" rel="stylesheet" type="text/css" />
+
+@model UserModel
+
 <h1>Admin</h1>
 
 <h1>Страница, которую должен видеть только админ.</h1>
+
+<table border="1" >
+    <tr>
+        <th>Login</th>
+        <th>Role</th>
+        <th>Action</th>
+    </tr>
+    @foreach(var item in @ViewBag.allUsers)
+    {
+        <tr>
+            <td>@item.Login</td>
+            <td>@item.Role</td>
+            <td>
+                <form asp-controller="Admin" asp-action="DeletingUser" method="post">
+                    <input hidden asp-for="Id" value="@item.Id"/>
+                    <button type="submit">Удалить</button>
+                </form>
+            </td>
+        </tr>
+    }
+</table>
 

@@ -1,4 +1,5 @@
-﻿using SecureDev.HomeWork.DAL.Context;
+﻿using Microsoft.Extensions.Logging;
+using SecureDev.HomeWork.DAL.Context;
 using SecureDev.HomeWork.DAL.Models;
 using SecureDev.HomeWork.ViewModels;
 

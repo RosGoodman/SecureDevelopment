@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace SecureDev.HomeWork.DAL.Models
 {
@@ -16,7 +15,6 @@ namespace SecureDev.HomeWork.DAL.Models
         public string CardOwner { get; set; }
 
         /// <summary> Дата окончания действия карты. </summary>
-        [BindProperty]
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:dd MMM yyyy}")]
         public DateTime Validity { get; set; }

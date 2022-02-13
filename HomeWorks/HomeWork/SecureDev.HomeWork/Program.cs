@@ -4,6 +4,9 @@ using SecureDev.HomeWork.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using SecureDev.HomeWork.DAL.Models;
 using System.Security.Claims;
+using SecureDev.HomeWork.ViewModels;
+using Common.Interfaces.RepositoryInterfaces;
+using Common.DAL.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +22,8 @@ services.AddScoped(typeof(IUserModel), typeof(UserModel));
 services.AddScoped(typeof(IContextDB), typeof(ContextDB));
 services.AddScoped(typeof(IRegistrationRepository), typeof(RegistrationRepository));
 services.AddScoped(typeof(ILoginRepository), typeof(LoginRepository));
+services.AddScoped(typeof(IUserRepository), typeof(UserRepository));
+services.AddScoped(typeof(IRegistrationModel), typeof(RegistrationModel));
 
 
 //подключение авторизации и аутентификации

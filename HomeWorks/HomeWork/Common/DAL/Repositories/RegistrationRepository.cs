@@ -1,4 +1,5 @@
-﻿using SecureDev.HomeWork.DAL.Context;
+﻿using Microsoft.Extensions.Logging;
+using SecureDev.HomeWork.DAL.Context;
 using SecureDev.HomeWork.DAL.Models;
 using SecureDev.HomeWork.ViewModels;
 
@@ -18,7 +19,7 @@ namespace SecureDev.HomeWork.DAL.Repositories
         /// <summary> Зарегистрировать нового пользователя. </summary>
         /// <param name="vm"> Модель с данными нового пользователя. </param>
         /// <returns> Зрегистрироване/не зарегистрирован. </returns>
-        public async Task<bool> TryRegisterAsync(IRegistrationViewModel vm)
+        public async Task<bool> TryRegisterAsync(IRegistrationModel vm)
         {
             try
             {

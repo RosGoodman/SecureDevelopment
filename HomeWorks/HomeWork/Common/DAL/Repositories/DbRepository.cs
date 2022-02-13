@@ -7,7 +7,7 @@ namespace SecureDev.HomeWork.DAL.Repositories;
 
 /// <summary> Репозиторий БД. </summary>
 /// <typeparam name="T"> Класс. </typeparam>
-internal class DbRepository<T> : IRepository<T> where T : class, ICardEntity
+public class DbRepository<T> : IRepository<T> where T : class, ICardEntity
 {
     private readonly ContextDB _db;
     protected DbSet<T> Set { get; }
@@ -42,5 +42,5 @@ internal class DbRepository<T> : IRepository<T> where T : class, ICardEntity
 
     public Task<bool> UpdateAsync(T item, CancellationToken Cancel = default) => throw new NotImplementedException();
     public Task<bool> DeleteAsync(T item, CancellationToken Cancel = default) => throw new NotImplementedException();
-    public Task<IEnumerable<T>> GetAllAsync(CancellationToken Cancel = default) => throw new NotImplementedException();
+    public async Task<IEnumerable<T>> GetAllAsync(CancellationToken Cancel = default) => throw new NotImplementedException();
 }

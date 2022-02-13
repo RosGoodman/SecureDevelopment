@@ -14,5 +14,10 @@ namespace SecureDev.HomeWork.DAL.Context
 
         /// <summary> "Завернутый метод для использования в DI. </summary>
         public void SaveChangesDB() => SaveChanges();
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

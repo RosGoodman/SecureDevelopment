@@ -39,7 +39,7 @@ namespace SecureDev.HomeWork.Controllers
         /// <returns></returns>
         [HttpPost]
         [AllowAnonymous]
-        public async Task<IActionResult> Register(RegistrationViewModel vm)
+        public async Task<IActionResult> Register(RegistrationModel vm)
         {
             _logger.LogDebug(1, "Выполнение запроса регистрации пользователя.");
 
