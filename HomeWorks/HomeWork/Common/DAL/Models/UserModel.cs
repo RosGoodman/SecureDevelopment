@@ -14,6 +14,8 @@ public class UserModel : IUserModel
     public string Role { get; set; }
     /// <summary> Пароль. </summary>
     public string UserPassword { get; set; }
+    /// <summary> Id выбранного пользователем робота. </summary>
+    public int RobotId { get; set; }
 
     public UserModel() { }
 }

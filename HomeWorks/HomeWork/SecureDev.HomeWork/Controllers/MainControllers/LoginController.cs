@@ -57,7 +57,7 @@ namespace SecureDev.HomeWork.Controllers
             }
 
             //получение клаймов в соответствии с ролями
-            var claims = GetClaimsList(user, model);
+            var claims = GetClaimsList(user);
 
             var claimIdentity = new ClaimsIdentity(claims, "Cookie");
             var claimPrincipal = new ClaimsPrincipal(claimIdentity);
@@ -68,15 +68,14 @@ namespace SecureDev.HomeWork.Controllers
 
         /// <summary> Получить список клаймов в соответствии с ролью. </summary>
         /// <param name="user"> Авторизирующийся пользователь. </param>
-        /// <param name="model"> Модель данных. </param>
         /// <returns> Список клаймов. </returns>
-        private List<Claim> GetClaimsList(UserModel user, LoginViewModel model)
+        private List<Claim> GetClaimsList(UserModel user)
         {
             if (user.Role == "User")
             {
                 var claims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.Name, model.UserName),
+                    new Claim(ClaimTypes.Name, user.Id.ToString()),
                     new Claim(ClaimTypes.Role, "User")
                 };
                 return claims;
@@ -85,7 +84,7 @@ namespace SecureDev.HomeWork.Controllers
             {
                 var claims = new List<Claim>
                 {
-                    new Claim(ClaimTypes.Name, model.UserName),
+                    new Claim(ClaimTypes.Name, user.Id.ToString()),
                     new Claim(ClaimTypes.Role, "Administrator")
                 };
                 return claims;

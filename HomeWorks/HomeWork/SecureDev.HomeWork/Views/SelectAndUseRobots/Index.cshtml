@@ -1,0 +1,20 @@
+﻿@using ProgramLogic
+
+<h1>На этой странице пользователь может выбрать своего робота.</h1>
+<h2>Для получения используется абстрактная фабрика.</h2>
+<br /><br />
+<h2>Текущий робот: @ViewBag.RobotName</h2>
+<br /><br /><br />
+
+
+
+<div>
+    @using (Html.BeginForm("Create", "SelectAndUseRobots", FormMethod.Post))
+    {
+        @Html.DropDownList("RobotType", Html.GetEnumSelectList(typeof(RobotTypes)))
+        <br /><br />
+        <p>
+            <input type="submit" value="Сохранить"/>
+        </p>
+    }
+</div>

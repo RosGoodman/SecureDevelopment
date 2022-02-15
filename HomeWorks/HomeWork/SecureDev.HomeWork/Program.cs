@@ -25,7 +25,6 @@ services.AddScoped(typeof(ILoginRepository), typeof(LoginRepository));
 services.AddScoped(typeof(IUserRepository), typeof(UserRepository));
 services.AddScoped(typeof(IRegistrationModel), typeof(RegistrationModel));
 
-
 //подключение авторизации и аутентификации
 services.AddAuthentication("Cookie")
     .AddCookie("Cookie", config =>

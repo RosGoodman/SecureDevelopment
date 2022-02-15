@@ -36,4 +36,9 @@ public class UserRepository : IUserRepository
         _db.SaveChanges();
         return true;
     }
+
+    public UserModel GetById(int id)
+    {
+        return Set.Where(u => u.Id == id).FirstOrDefault();
+    }
 }

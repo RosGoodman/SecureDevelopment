@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Claims;
+using System.Security.Principal;
 
 namespace SecureDev.HomeWork.Controllers
 {
@@ -22,7 +24,7 @@ namespace SecureDev.HomeWork.Controllers
         }
 
         [Authorize(Roles = "User")]
-        public IActionResult User()
+        public IActionResult UserRoom()
         {
             return View();
         }

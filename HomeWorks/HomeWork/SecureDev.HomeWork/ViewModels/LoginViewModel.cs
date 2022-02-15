@@ -12,5 +12,7 @@ namespace SecureDev.HomeWork.ViewModels
         public string Password { get; set; }
         [ValidateNever]
         public string ReturnUrl { get; set; }
+        [ValidateNever]
+        public string Id { get; set; }
     }
 }

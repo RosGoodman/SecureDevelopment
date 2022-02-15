@@ -7,4 +7,6 @@ public interface IUserModel
     string Login { get; set; }
     string Role { get; set; }
     string UserPassword { get; set; }
+
+    int RobotId { get; set; }
 }
