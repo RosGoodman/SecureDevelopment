@@ -17,8 +17,8 @@ public class Robot
         _tool = factory.CreateTool();
     }
 
-    public void Move() => _movement.Move();
+    public string Move() => _movement.Move();
 
-    public void Position() => _tool.Position();
-    public void UseTool() => _tool.Use();
+    public string Position() => _tool.Position();
+    public string UseTool() => _tool.Use();
 }

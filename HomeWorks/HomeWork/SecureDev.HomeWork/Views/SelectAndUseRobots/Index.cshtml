@@ -9,7 +9,7 @@
 
 
 <div>
-    @using (Html.BeginForm("Create", "SelectAndUseRobots", FormMethod.Post))
+    @using (Html.BeginForm("ChangeRobot", "SelectAndUseRobots", FormMethod.Post))
     {
         @Html.DropDownList("RobotType", Html.GetEnumSelectList(typeof(RobotTypes)))
         <br /><br />
@@ -17,4 +17,10 @@
             <input type="submit" value="Сохранить"/>
         </p>
     }
+</div>
+
+<br /><br />
+
+<div>
+    <partial name="_RobotActionsPartial" />
 </div>

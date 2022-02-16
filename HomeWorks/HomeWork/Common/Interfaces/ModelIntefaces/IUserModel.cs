@@ -8,5 +8,5 @@ public interface IUserModel
     string Role { get; set; }
     string UserPassword { get; set; }
 
-    int RobotId { get; set; }
+    public int RobotId { get; set; }
 }

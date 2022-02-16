@@ -34,7 +34,7 @@ public class AdminController : Controller
     [HttpPost]
     public async Task<IActionResult> DeletingUser(UserModel user)
     {
-        bool isDeleted = await _repository.Delete(user.Id);
+        bool isDeleted = await _repository.DeleteAsync(user.Id);
         return Redirect("~/Admin/MainControllers/Administrator");
     }
 }

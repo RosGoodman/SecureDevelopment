@@ -1,5 +1,6 @@
 ﻿
 using Common.DAL.Models.ModelsForAnExampleOfAnAbstractFactory.Entities;
+using Common.DAL.Models.ModelsForAnExampleOfAnAbstractFactory.Factories;
 using ProgramLogic.Factories;
 
 namespace ProgramLogic
@@ -15,14 +16,11 @@ namespace ProgramLogic
             switch (type)
             {
                 case RobotTypes.CrawScrewdriverRobot:
-                    return new Robot(new RideHummerRobotFactory()) { Name = "RideHummerRobot" };
-                    break;
+                    return new Robot(new CrawScrewdriverRobotFactory()) { Name = "CrawScrewdriverRobot" };
                 case RobotTypes.FlyCleanerRobot:
                     return new Robot(new FlyCleanerRobotFactory()) { Name = "FlyCleanerRobot" };
-                    break;
                 case RobotTypes.RideHummerRobot:
                     return new Robot(new RideHummerRobotFactory()) { Name = "RideHummerRobot" };
-                    break;
             }
             return new Robot(new EmptyFrameRobotFactory()) { Name = "EmptyFrameRobot" };
         }
